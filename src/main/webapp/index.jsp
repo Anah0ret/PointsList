@@ -5,9 +5,10 @@
   <title>TestTask</title>
 </head>
 <body>
-<h3>Points list</h3>
+<h1>Тестовая задача для Javarush</h1>
 <br/>
-<a href="<c:url value="/points"/>" target="_blank">Points list</a>
+<h3>для получения списка задач из базы и работы с ними</h3>
+<a href="<c:url value="/points"/>" target="_blank">нажмите сюда</a>
 <br/>
 </body>
 </html>

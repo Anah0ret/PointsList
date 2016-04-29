@@ -30,14 +30,14 @@ public class PointDaoImpl implements PointDao{
     @Override
     public void removePoint(int id) {
         Session session=this.sessionFactory.getCurrentSession();
-        Point point=(Point) session.load(Point.class, new Integer(id));
+        Point point=(Point) session.get(Point.class, new Integer(id));
         if(point!=null) session.delete(point);
     }
 
     @Override
     public Point getPoint(int id) {
         Session session=this.sessionFactory.getCurrentSession();
-        return (Point)session.load(Point.class, new Integer(id));
+        return (Point)session.get(Point.class, new Integer(id));
     }
 
     @Override

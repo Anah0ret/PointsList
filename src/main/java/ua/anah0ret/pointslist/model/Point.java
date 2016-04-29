@@ -17,7 +17,7 @@ public class Point {
     private String pointContext;
 
     @Column(name = "pointclose")
-    private int pointClose;
+    private boolean pointClose;
 
     public int getId() {
         return id;
@@ -43,11 +43,11 @@ public class Point {
         this.pointContext=pointContext;
     }
 
-    public int getPointClose() {
+    public boolean getPointClose() {
         return pointClose;
     }
 
-    public void setPointClose(int pointClose) {
+    public void setPointClose(boolean pointClose) {
         this.pointClose=pointClose;
     }
 

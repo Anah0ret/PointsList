@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
-<%@ page session="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="false" %>
 <html>
 <head>
   <title>Points Page</title>
@@ -47,20 +46,22 @@
   </style>
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
+<a href="../../index.jsp">Вернуться на стартовую</a>
 
 <br/>
 <br/>
 
-<h1>Point List</h1>
+<h1>Список задач</h1>   отобрать <a href="<c:url value="/points/all"/>" target="_parent">все</a> |
+<a href="<c:url value="/points/open"/>" target="_parent">невыполненые</a> |
+<a href="<c:url value="/points/close"/>" target="_parent">выполненые</a>
 
 <c:if test="${!empty listPoints}">
   <table class="tg">
     <tr>
       <th width="80">ID</th>
-      <th width="120">Name</th>
-      <th width="320">Context</th>
-      <th width="120">Close</th>
+      <th width="120">Имя</th>
+      <th width="320">Что нужно сделать</th>
+      <th width="80">Выполнена</th>
       <th width="60">Edit</th>
       <th width="60">Delete</th>
     </tr>
@@ -69,7 +70,8 @@
         <td>${point.id}</td>
         <td><a href="/pointdata/${point.id}" target="_blank">${point.pointName}</a></td>
         <td>${point.pointContext}</td>
-        <td>${point.pointClose}</td>
+        <td><input type="checkbox" disabled
+                <c:if test="${point.pointClose}"> checked </c:if> /></td>
         <td><a href="<c:url value='/edit/${point.id}'/>">Edit</a></td>
         <td><a href="<c:url value='/remove/${point.id}'/>">Delete</a></td>
       </tr>
@@ -100,7 +102,7 @@
     <tr>
       <td>
         <form:label path="pointName">
-          <spring:message text="Name"/>
+          <spring:message text="Имя"/>
         </form:label>
       </td>
       <td>
@@ -110,32 +112,32 @@
     <tr>
       <td>
         <form:label path="pointContext">
-          <spring:message text="Context"/>
+          <spring:message text="Что нужно сделать"/>
         </form:label>
       </td>
       <td>
-        <form:input path="pointContext"/>
+        <form:input path="pointContext" maxlength="255"/>
       </td>
     </tr>
     <tr>
       <td>
         <form:label path="pointClose">
-          <spring:message text="Close"/>
+          <spring:message text="Выполнена"/>
         </form:label>
       </td>
       <td>
-        <form:input path="pointClose"/>
+        <form:checkbox path="pointClose"/>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <c:if test="${!empty point.pointName}">
           <input type="submit"
-                 value="<spring:message text="Edit Point"/>"/>
+                 value="<spring:message text="Сохранить задачу"/>"/>
         </c:if>
         <c:if test="${empty point.pointName}">
           <input type="submit"
-                 value="<spring:message text="Add Point"/>"/>
+                 value="<spring:message text="Добавить задачу"/>"/>
         </c:if>
       </td>
     </tr>

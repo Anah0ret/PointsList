@@ -1,12 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="false" %>
 
 <html>
 <head>
-  <title>BookData</title>
+  <title>PointData</title>
 
   <style type="text/css">
     .tg {
@@ -49,20 +46,21 @@
 
 </head>
 <body>
-<h1>Book Details</h1>
+<h1>Детали выбраной задачи</h1>
 
 <table class="tg">
   <tr>
     <th width="80">ID</th>
-    <th width="120">Name</th>
-    <th width="320">Context</th>
-    <th width="120">Close</th>
+    <th width="120">Имя</th>
+    <th width="320">Что нужно сделать</th>
+    <th width="80">Выполнена</th>
   </tr>
   <tr>
     <td>${point.id}</td>
     <td>${point.pointName}</td>
     <td>${point.pointContext}</td>
-    <td>${point.pointClose}</td>
+    <td><input type="checkbox" disabled
+            <c:if test="${point.pointClose}"> checked </c:if> /> </td>
   </tr>
 </table>
 </body>
