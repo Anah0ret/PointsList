@@ -1,3 +1,4 @@
+USE test;
 create table pointslist
 (
   id INT NOT NULL AUTO_INCREMENT,
