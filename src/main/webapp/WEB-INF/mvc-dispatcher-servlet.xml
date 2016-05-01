@@ -45,7 +45,7 @@
         <property name="pointDao" ref="pointDao"/>
     </bean>
 
-    <context:component-scan base-package="ua.anah0ret.pointslist"/>
+    <context:component-scan base-package="ua.anah0ret.pointslist.controller"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
