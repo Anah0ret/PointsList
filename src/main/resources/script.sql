@@ -7,7 +7,6 @@ create table pointslist
   pointclose INT(1) NOT NULL,
   PRIMARY KEY (id)
   ) engine=InnoDB;
-
 set names 'utf8';
 
 insert into pointslist (pointname, pointcontext, pointclose)
