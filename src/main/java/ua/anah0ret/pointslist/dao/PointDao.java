@@ -4,9 +4,6 @@ import ua.anah0ret.pointslist.model.Point;
 
 import java.util.List;
 
-/**
- * Created by Admin on 25.04.2016.
- */
 public interface PointDao {
     public void addPoint(Point point);
 
@@ -17,4 +14,6 @@ public interface PointDao {
     public Point getPoint(int id);
 
     public List<Point> listPoints();
+
+    public List<Point> listPoints(String query);
 }

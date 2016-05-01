@@ -3,7 +3,7 @@ package ua.anah0ret.pointslist.model;
 import javax.persistence.*;
 
 @Entity
-@Table(schema = "pointslist", name = "points")
+@Table(schema = "test", name = "pointslist")
 public class Point {
     @Id
     @Column(name = "id")

@@ -8,7 +8,7 @@
 <h1>Тестовая задача для Javarush</h1>
 <br/>
 <h3>для получения списка задач из базы и работы с ними</h3>
-<a href="<c:url value="/points"/>" target="_blank">нажмите сюда</a>
+<a href="<c:url value="/points"/>">нажмите сюда</a>
 <br/>
 </body>
 </html>

@@ -28,6 +28,13 @@ public class PointController {
         return "points";
     }
 
+    @RequestMapping(value = "/points/{query}")
+    public String pathVariable(@PathVariable String query, Model model) {
+        model.addAttribute("point", new Point());
+        model.addAttribute("listPoints", this.pointService.listPoints(query));
+        return "points";
+    }
+
     @RequestMapping(value = "/points/add", method = RequestMethod.POST)
     public String addPoint(@ModelAttribute("point") Point point){
         if(point.getId() == 0){

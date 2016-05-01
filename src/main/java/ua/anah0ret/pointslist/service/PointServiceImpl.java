@@ -44,4 +44,10 @@ public class PointServiceImpl implements PointService{
     public List<Point> listPoints() {
         return this.pointDao.listPoints();
     }
+
+    @Override
+    @Transactional
+    public List<Point> listPoints(String query) {
+        return this.pointDao.listPoints(query);
+    }
 }
